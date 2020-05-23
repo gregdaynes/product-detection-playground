@@ -1,0 +1,25 @@
+{
+  "name": "product-detection-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^2.5.0"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^14.1.0",
+    "parcel-bundler": "^1.12.4",
+    "posthtml-modules": "^0.6.0"
+  },
+  "scripts": {
+    "start": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
