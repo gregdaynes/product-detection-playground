@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { getCommonAncestor } from './common-ancestor';
 
-export function detectTargets(handles) {
+export function detectHandles(handles) {
   const handleLinks = handles.map(handle => $(`[href*="/${handle}"]`));
   handleLinks.forEach(link => $(link).css('border', '1px solid blue'));
 
@@ -27,6 +27,20 @@ export function detectTargets(handles) {
   childrenTargets.forEach(link => $(link).css('border', '1px solid green'));
   ancestorTargets.forEach(link => $(link).css('border', '1px solid purple'));
 }
+
+export function detectProductIds() {
+  const name = `1590171771774`;
+  let y = [];
+  const idx = $(`img[id*="${name}"]`)
+
+  idx.each((_index, name) => {
+    const ancestor = getCommonAncestor(name, 'img');
+    y.push($(ancestor).find('img'));
+  });
+  y.forEach(z => $(z).css('border', '10px solid orange'));
+
+}
+
 
 /* PXU Original Detection
  *
