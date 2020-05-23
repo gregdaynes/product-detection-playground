@@ -1,3 +1,9 @@
 {
-  "extends": "airbnb-base"
+  "extends": "airbnb-base",
+  "globals": {
+    "$": true
+  },
+  "rules": {
+    "func-names": false
+  }
 }
