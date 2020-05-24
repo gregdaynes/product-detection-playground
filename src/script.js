@@ -5,5 +5,5 @@ detectHandles(['5-panel-hat', 'ayers-chambray', 'ayres-chambray', 'camp-stool', 
 detectHandles(['test-a', 'test-b']);
 
 // detectProductName([{ handle: '5-panel-hat', name: '5 Panel Camp cap', productId: 1590171771774 }]);
-detectProductIds([{ handle: '5-panel-hat', name: '5 Panel Camp cap', productId: 1590171771774 }]);
+// detectProductIds([{ handle: '5-panel-hat', name: '5 Panel Camp cap', productId: 1590171771774 }]);
 

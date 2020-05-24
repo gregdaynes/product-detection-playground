@@ -8,6 +8,9 @@ export function detectHandles(handles) {
   let childrenTargets = [];
   let ancestorTargets = [];
 
+  $('img').css('box-shadow', '0 0 1px black')
+  $('a img').css('box-shadow', '0 0 1px turquoise')
+
   handleLinks.forEach(links => {
     links.each((_i, link) => {
       const child = $(link).find('img');
@@ -18,12 +21,16 @@ export function detectHandles(handles) {
 
       const ancestor = getCommonAncestor(link, 'img');
       if (ancestor) {
-        ancestorTargets.push($(ancestor).find('img'));
+        ancestorTargets.push($(ancestor));
         return;
       }
     });
   });
 
+  const x = [...ancestorTargets[0], ...ancestorTargets[1]];
+  const y = $.uniqueSort(x);
+
+  console.log(y);
   childrenTargets.forEach(link => $(link).css('border', '1px solid green'));
   ancestorTargets.forEach(link => $(link).css('border', '1px solid purple'));
 }
