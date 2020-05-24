@@ -1,4 +1,10 @@
 import $ from 'jquery';
-import { detectTargets } from './lib/detect-targets';
+import { detectHandles, detectProductName, detectProductIds } from './lib/detect-targets';
 
-detectTargets(['5-panel-hat', 'ayers-chambray']);
+detectHandles(['5-panel-hat', 'ayers-chambray', 'ayres-chambray', 'camp-stool', 'canvas-lunch-bag']);
+detectHandles(['test-a', 'test-b']);
+// detectHandles(['test-a']);
+
+// detectProductName([{ handle: '5-panel-hat', name: '5 Panel Camp cap', productId: 1590171771774 }]);
+// detectProductIds([{ handle: '5-panel-hat', name: '5 Panel Camp cap', productId: 1590171771774 }]);
+
