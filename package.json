@@ -15,6 +15,7 @@
   "devDependencies": {
     "eslint-config-airbnb-base": "^14.1.0",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-inline-source": "^1.0.0",
     "posthtml-modules": "^0.6.0",
     "sass": "^1.26.5"
   },
