@@ -2,52 +2,35 @@ import $ from 'jquery';
 import { getCommonAncestor } from './common-ancestor';
 
 export function detectHandles(handles) {
-  const handleLinks = handles.map(handle => $(`[href*="/${handle}"]`));
-  handleLinks.forEach(link => $(link).css('border', '1px solid blue'));
+  const handleLinks = handles.map(handle => [handle, $(`[href*="/${handle}"]`)]);
+  handleLinks.forEach(link => $(link[1]).css('border', '1px solid blue'));
 
   let childrenTargets = [];
   let ancestorTargets = [];
 
-  $('img').css('box-shadow', '0 0 1px black')
-  $('a img').css('box-shadow', '0 0 1px turquoise')
+  handleLinks.forEach(handleWithLinks => {
+    const [ handle, linksWithHandle ] = handleWithLinks;
 
-  handleLinks.forEach(links => {
-    links.each((_i, link) => {
+    linksWithHandle.each((_i, link) => {
       const child = $(link).find('img');
       if (child.length) {
         childrenTargets.push(child);
         return;
       }
 
-      const ancestor = getCommonAncestor(link, 'img');
-      if (ancestor) {
-        ancestorTargets.push($(ancestor));
+      const ancestors = getCommonAncestor(link, 'img', handle);
+      if (ancestors) {
+        $(ancestors).each((_i, ancestor) => {
+          ancestorTargets.push($(ancestor).find('img'));
+        });
         return;
       }
     });
   });
 
-  const x = [...ancestorTargets[0], ...ancestorTargets[1]];
-  const y = $.uniqueSort(x);
-
-  console.log(y);
   childrenTargets.forEach(link => $(link).css('border', '1px solid green'));
   ancestorTargets.forEach(link => $(link).css('border', '1px solid purple'));
 }
-
-export function detectProductIds() {
-  const name = `1590171771774`;
-  let y = [];
-  const idx = $(`img[id*="${name}"]`)
-
-  idx.each((_index, name) => {
-    const ancestor = getCommonAncestor(name, 'img');
-    y.push($(ancestor).find('img'));
-  });
-  y.forEach(z => $(z).css('border', '10px solid orange'));
-
-}
-
 
 /* PXU Original Detection
  *

@@ -1,26 +1,24 @@
 import $ from 'jquery';
 
-export function getCommonAncestor(a, b) {
-  const $parentsa = $(a).parentsUntil('body');
-  const $parentsb = $(b).parentsUntil('body');
+export function getCommonAncestor(a, b, handle) {
+  const $parentsa = $(a).parents();
+  const $parentsb = $(b).parents();
 
-  $($parentsb).css('border', '2px solid pink');
-  $($parentsb).css('padding', '1px');
+  const baseLink = $(a).attr('href').split(handle)[0];
 
   let found = [];
 
   $parentsa.each(function() {
+    if ($(this).find(`a[href^="${baseLink}"]`).length > 1) return false;
+
     const thisa = this;
 
     $parentsb.each(function() {
-      if (thisa == this)
-      {
-        found.push(this);
+      if (thisa == this) {
+        found.push($(this));
         return false;
       }
     });
-
-    // if (found) return false;
   });
 
   return found;
